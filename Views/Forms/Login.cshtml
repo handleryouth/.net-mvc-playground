@@ -1,0 +1,54 @@
+@model MvcMovie.Models.LoginForms
+
+@{
+    ViewData["Title"] = "Login";
+
+    <h1>Login Page</h1>
+
+    @using (Html.BeginForm("Login", "Forms", FormMethod.Post, new
+    {
+        @class = "row row-cols-1 gap-4"
+    }))
+    {
+
+        <div class="input-group col px-0">
+            @Html.LabelFor(m => m.Email, new
+                {
+                    @class = "input-group-text"
+                })
+            @Html.TextBoxFor(m => m.Email, new
+                {
+                    @type = "text",
+                    @required = true,
+                    @class = "form-control"
+                })
+            @Html.ValidationMessageFor(m => m.Email, "", new
+                {
+                    @class = "text-danger d-block w-100"
+                })
+        </div>
+
+
+
+        <div class="input-group col px-0">
+            @Html.LabelFor(m => m.Password, new
+                {
+                    @class = "input-group-text"
+                })
+            @Html.TextBoxFor(m => m.Password, new
+                {
+                    @type = "password",
+                    @required = true,
+                    @class = "form-control"
+                })
+            @Html.ValidationMessageFor(m => m.Password, "", new
+                {
+                    @class = "text-danger d-block w-100"
+                })
+        </div>
+
+        <button type="submit" class="col btn btn-dark">Submit</button>
+
+
+    }
+}

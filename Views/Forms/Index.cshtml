@@ -1,0 +1,66 @@
+@model MvcMovie.Models.MovieForms
+@{
+    ViewData["Title"] = "Forms";
+}
+
+<div>
+    <h1>Forms</h1>
+
+    @using (Html.BeginForm("Index", "Forms", FormMethod.Post))
+    {
+        <div>
+            <label for="movieName">Name:</label>
+            @Html.TextBoxFor(m => m.Name, new
+                {
+                    @name = "movieName",
+                    @placeholder = "Enter Movie Name"
+                });
+        </div>
+
+        <div>
+            <label for="movieYear">Year:</label>
+
+            @Html.TextBoxFor(m => m.Year, new
+                {
+                    @name = "movieYear",
+                    @placeholder = "Enter Movie Year"
+                });
+        </div>
+
+        <div>
+            <label for="movieDescription">Description:</label>
+            @Html.TextBoxFor(m => m.Description, new
+                {
+                    @name = "movieDescription",
+                    @placeholder = "Movie Description"
+                });
+        </div>
+
+        <div class="buttonContainer">
+            <button type="submit">
+                Submit
+            </button>
+            <button type="reset">
+                Reset
+            </button>
+        </div>
+    }
+
+    <div>
+
+        <strong>Movie Name: </strong> @Html.DisplayFor(m => m.Name)<br />
+        <strong>Movie Year: </strong> @Html.DisplayFor(m => m.Year)<br />
+        <strong>Movie City: </strong> @Html.DisplayFor(m => m.Description)<br />
+
+    </div>
+
+
+</div>
+
+<style>
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>
